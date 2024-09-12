@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Random API</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            text-align: center;
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Random API</h1>
+        <p id="randomData">Click the button to get random data!</p>
+        <button id="randomButton">Generate Random Data</button>
+    </div>
+
+    <script>
+        // Generar datos aleatorios
+        function generateRandomData() {
+            const randomNumber = Math.floor(Math.random() * 100) + 1;
+            const randomString = Math.random().toString(36).substring(7);
+            return {
+                number: randomNumber,
+                string: randomString
+            };
+        }
+
+        // Manejar el evento de clic en el botón
+        document.getElementById('randomButton').addEventListener('click', () => {
+            const randomData = generateRandomData();
+            document.getElementById('randomData').innerText = `Random Number: ${randomData.number}, Random String: ${randomData.string}`;
+        });
+    </script>
+</body>
+</html>
